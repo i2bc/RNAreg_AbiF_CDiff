@@ -1,0 +1,9 @@
+name: Rbase4.4.3_MSstats
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-base=4.4.3
+  - r-ggplot2=3.5.1
+  - r-sartools=1.8.1
+  - bioconductor-msstats=4.14.0
