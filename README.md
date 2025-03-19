@@ -201,19 +201,19 @@ complete, up, and down tables of differentially total spectrum counts and the as
 
 ## Reference
 
-- conda
-- Psi-blast (v2.16.1)
-- Refseq and Genbank databases
-- CDD database
-- snakemake
-- fastqc
-- fastqScreen
-- fastp
-- bowtie2
-- subread
-- SARtools
-- DESeq2
-- R-enhancedVolcano
+- **conda** Conda — conda documentation. https://docs.conda.io/en/latest/ 
+- **Psi-blast** (v2.16.1) Altschul S.F., Madden T.L., Schäffer A.A., Zhang J., Zhang Z., Miller W., Lipman D.J. (1997) Gapped BLAST and PSI-BLAST: a new generation of protein database search programs. Nucleic Acids Res. Sep 1;25(17):3389-402. [doi](10.1093/nar/25.17.3389)
+- **CDD database** Wang J., Chitsaz F., Derbyshire M.K., Gonzales N.R., Gwadz M., Lu S., Marchler G.H., Song J.S., Thanki N., Yamashita R.A., Yang M., Zhang D., Zheng C., Lanczycki C.J., Marchler-Bauer A. (2023) The conserved domain database in 2023. Nucleic Acids Res. Jan 6;51(D1):D384-D388. [doi](10.1093/nar/gkac1096)
+- **snakemake** Koster J., Rahmann S. (2018) Snakemake-a scalable bioinformatics workflow engine. Bioinformatics. 34:3600. [doi](https://doi.org/10.1093/bioinformatics/bty350) [readthedocs](https://snakemake.readthedocs.io)
+- **fastqc** (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+- **fastqScreen** Wingett SW, Andrews S. (2018) FastQ Screen: A tool for multi-genome mapping and quality control. F1000Res. Aug 24;7:1338. [doi](10.12688/f1000research.15931.2) [github](https://github.com/StevenWingett/FastQ-Screen)
+- **fastp** Chen S, Zhou Y, Chen Y, Gu J. (2018) fastp: an ultra-fast all-in-one FASTQ preprocessor. Bioinformatics. Sep 1;34(17):i884-i890. [doi](10.1093/bioinformatics/bty560)
+- **bowtie2** Langmead B., Salzberg S.L. (2012) Fast gapped-read alignment with Bowtie 2. Nat. Methods. 9:357–359. [doi](https://doi.org/10.1038/nmeth.1923)
+- **samtools** Li H., Handsaker B., Wysoker A., Fennell T., Ruan J., Homer N., Marth G., Abecasis G., Durbin R. (2009) The sequence alignment/map format and SAMtools. Bioinformatics. 25:2078–2079. [doi](https://doi.org/10.1093/bioinformatics/btp352)
+- **subread** Liao Y., Smyth G.K., Shi W. (2014) featureCounts: an efficient general purpose program for assigning sequence reads to genomic features. Bioinformatics. 30:923–930. [doi](10.1093/bioinformatics/btt656) [subread](http://subread.sourceforge.net)
+- **SARtools** Varet H, Brillet-Guéguen L, Coppée JY, Dillies MA. (2016) SARTools: A DESeq2- and EdgeR-Based R Pipeline for Comprehensive Differential Analysis of RNA-Seq Data. PLoS One. Jun 9;11(6):e0157022. [doi](10.1371/journal.pone.0157022)
+- **DESeq2** Love M.I., Huber W., Anders S. (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol. 15:550. [doi](https://doi.org/10.1186/s13059-014-0550-8)
+- **R-enhancedVolcano** Blighe K., Rana S., Lewis M. (2024) EnhancedVolcano: Publication-ready volcano plots with enhanced colouring and labeling. R package version 1.24.0, [doi](https://doi.org/doi:10.18129/B9.bioc.EnhancedVolcano) [github](https://github.com/kevinblighe/EnhancedVolcano)
 
 
 ## Citation
