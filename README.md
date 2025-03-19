@@ -26,7 +26,7 @@ This GitHub repository accompanies the preprint where we report the identificati
 10031 Positions_genes_autours_abi-2_ou_abiF_4pos.csv
 10006 Positions_genes_autours_abi-2_ou_abiF_5pos.csv
 ```
-- MAPS experiments data: stand in two parts: RNAseq fraction ([ENA_xxx](ENA_xxx) **choisir les données RNAseq short**) and [proteic fraction](zenodo_xxx, MatSupp, or github/data `R20291_RCd22_Soutourina_120723.xlsx` = 145K ; supprimer les colonnes "long" ?)
+- MAPS experiments data: stand in two parts: RNAseq fraction ([ENA_xxx](ENA_xxx)) and [proteic fraction](zenodo_xxx, MatSupp, or github/data `R20291_RCd22_Soutourina_120723.xlsx` = 145K ; supprimer les colonnes "long" ?)
 
 - [color selection for the figure of AbiF-like system conservation](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/data/color_selection.tsv)
 
