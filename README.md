@@ -6,7 +6,7 @@ This GitHub repository accompanies the preprint where we report the identificati
 
 - [Dataset](#dataset)
 - [Conservation](#conservation) of the AbiF-like system of the hypervirulent ribotype 027 strain
-- [MAPS analysis for the RCd22 ncRNA](#maps)
+- [MAPS](#MAPS) analysis for the RCd22 ncRNA
 - [Citation](#citation)
 
 ## Dataset
@@ -153,7 +153,9 @@ Rscript abi_context_graph.R
 result: `abi_context_graph.png`
  
  
-## MAPS analysis of the RCd22 ncRNA
+## MAPS
+ 
+MAPS (MS2‐affinity purification coupled with RNA sequencing) analysis for the RCd22 ncRNA
 
 ### MAPS rnaseq fraction
 
