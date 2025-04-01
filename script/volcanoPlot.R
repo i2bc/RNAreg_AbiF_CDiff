@@ -19,11 +19,6 @@ names(keyvals)[keyvals == 'blue'] <- 'down'
 
 dev.new(width=10, height=6)
 
-# label for RCd22 short
-spec_label <- c("1558", "2768", "1829", "3357", "0538", "1462", "RCd22","RS16617","RCd21","RS10482", "RS19465")
-# label for RCd22 long
-spec_label2 <- c("1558", "2768", "1829", "3357", "0538", "1462", "RCd22","RS16617","1951", "RCd2")
-
 if(rcd22type=="long"){
     # label for RCd22 long
     spec_label <- c("1558", "2768", "1829", "3357", "0538", "1462", "RCd22","RS16617","1951", "RCd2")

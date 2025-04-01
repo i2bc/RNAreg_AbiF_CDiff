@@ -19,4 +19,4 @@ legendPositionVal <- 'bottom'
 
 captionVal <- paste("Log2FC cutoff:",lg2Seuil,", padj cutoff:",padjSeuil) 
 
-rcd22type <- "short" # shoose between "short" or "long"
+rcd22type <- "short" # choose between "short" or "long"
