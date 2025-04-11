@@ -1,14 +1,15 @@
 cwdDir:
    # "/adapt/to/the/environment/
-   "/Users/joe.ueda/Downloads/for_github/"
+   ""
 pePrefix:
    "_"
 peSuffix:
    ""
 condaEnvDir:
-   "conda_env/"
+   "conda_environments/"
 genomeFna:
-   "dataR20/r20_referenceGenome_gcf.fasta"
+   # path to the reference genome
+   ""
 genomeIdxPrefix:
    "r20_idx"
 dataDir:
@@ -28,7 +29,8 @@ bwtSequencingOrientation:
 featureCountsDir:
    "04_counts/"
 annotation:
-   "dataR20/r20_referenceGenome_gcf_enriched_unsorted.gff"
+   # path to the genome annotation 
+   ""
 fc_feature:
    "gene,binding_site,riboswitch,sequence_feature"
 fc_tag:
@@ -36,9 +38,9 @@ fc_tag:
 fc_mode:
    "-p -s 2 -M --fraction --primary --largestOverlap"
 awksc:
-   "countFormating4DEG.awk"
+   "script/countFormating4DEG.awk"
 st_script:
-   "template_script_DESeq2_CL.r"
+   "script/template_script_DESeq2_CL.r"
 st_comparison: 
    "functional_r20_enrich_annot"
 st_condRef: 
@@ -53,18 +55,18 @@ st_group:
    "group"
 
 
-## config for volcano from here
+## config for volcano 
 
 olt_script:
-   "add_oldLocusTag_column.py"
+   "script/add_oldLocusTag_column.py"
 conversion_table4locusTag:
-   "table_locusTag_oldLocusTag.csv"
+   "data/table_locusTag_oldLocusTag.csv"
 sn_script:
-   "replace_lt2sn.py"
+   "script/replace_lt2sn.py"
 conversion_table4shortName:
-   "RCd22_shortNames.csv"
+   "data/RCd22_shortNames.csv"
 volcano_script:
-   "volcanoPlot.R"
+   "script/volcanoPlot.R"
 volcano_config:
-   "volcano_config.R"
+   "script/volcano_config.R"
 

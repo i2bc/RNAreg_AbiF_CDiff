@@ -5,7 +5,7 @@
 # claire.toffano-nioche @ i2bc.paris-saclay.fr
 # joe.ueda @ i2bc.paris-saclay.fr
 # 
-# frebuary 2024
+# april 2025
 # usage example on I2BC cluster:
 # qsub smk_maps.qsub
 # module load snakemake/snakemake-8.4.6
