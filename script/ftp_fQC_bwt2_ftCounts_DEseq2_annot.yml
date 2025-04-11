@@ -1,0 +1,70 @@
+cwdDir:
+   # "/adapt/to/the/environment/
+   "/Users/joe.ueda/Downloads/for_github/"
+pePrefix:
+   "_"
+peSuffix:
+   ""
+condaEnvDir:
+   "conda_env/"
+genomeFna:
+   "dataR20/r20_referenceGenome_gcf.fasta"
+genomeIdxPrefix:
+   "r20_idx"
+dataDir:
+   "dataDir/"
+fastqSuff:
+   ".fastq.gz"
+fastqcDir:
+   "01_quality/"
+trimDir:
+   "02_trimming/"
+trimSuff:
+   "_trimmed.fastq.gz"
+bwt2Dir:
+   "03_mapping_genome/"
+bwtSequencingOrientation:
+   "--fr"
+featureCountsDir:
+   "04_counts/"
+annotation:
+   "dataR20/r20_referenceGenome_gcf_enriched_unsorted.gff"
+fc_feature:
+   "gene,binding_site,riboswitch,sequence_feature"
+fc_tag:
+   "locus_tag"
+fc_mode:
+   "-p -s 2 -M --fraction --primary --largestOverlap"
+awksc:
+   "countFormating4DEG.awk"
+st_script:
+   "template_script_DESeq2_CL.r"
+st_comparison: 
+   "functional_r20_enrich_annot"
+st_condRef: 
+   "ctrl"
+st_condition: 
+   "wtvsctrl"
+st_dir:
+   "05_DEG/"
+st_designDir:
+   ""
+st_group:
+   "group"
+
+
+## config for volcano from here
+
+olt_script:
+   "add_oldLocusTag_column.py"
+conversion_table4locusTag:
+   "table_locusTag_oldLocusTag.csv"
+sn_script:
+   "replace_lt2sn.py"
+conversion_table4shortName:
+   "RCd22_shortNames.csv"
+volcano_script:
+   "volcanoPlot.R"
+volcano_config:
+   "volcano_config.R"
+

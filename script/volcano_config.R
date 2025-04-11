@@ -1,7 +1,6 @@
 # conda env:
 # conda activate R-EnhancedVolcano_ce
 # DESeq2 table
-path2DESeq2 <- "/home/joe.ueda/Bureau/cDiff/maps_deseq2/rcd22/fichier_envoi/rcd22_short_MAPS.txt"
 
 lg2Seuil <- 2                                                                                                                                                          
 padjSeuil <- 0.05
