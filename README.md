@@ -70,7 +70,7 @@ Resulting file: `full_lineage_bact.nwk`
 For ease of viewing, only 23 taxonomic levels have been manually selected for color display : `data/color_selection.tsv`.
 This selection was chosen according to different taxonomic levels to highlight *C. difficile* and *Staphylococcus aureus* and visualize those with counts of zero (if more than 160 genomes). 
 The other selected taxonomic levels constitute a balanced grouping according to the number of genomes in which the AbiF_like system was searched.
-Black color stands for other divisions.
+Black color represents the remaining divisions.
 
 Into the iTOL templates [colors](https://itol.embl.de/help/dataset_color_strip_template.txt), manually change:
 - SEPARATOR SPACE for TAB 
