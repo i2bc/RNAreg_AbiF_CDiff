@@ -27,7 +27,11 @@ This GitHub repository accompanies the preprint where we report the identificati
 10031 Positions_genes_autours_abi-2_ou_abiF_4pos.csv
 10006 Positions_genes_autours_abi-2_ou_abiF_5pos.csv
 ```
-- MAPS experiments data: stand in two parts: RNAseq fraction ([PRJEB87349](https://www.ebi.ac.uk/ena/browser/view/PRJEB87349)) and [proteic fraction](zenodo_xxx `R20291_RCd22_Soutourina_120723.xlsx` = 145K)
+- MAPS experiments data: stand in two parts: RNAseq fraction ([PRJEB87349](https://www.ebi.ac.uk/ena/browser/view/PRJEB87349)) and proteic fraction [R20291_RCd22_Soutourina_120723.xlsx](https://doi.org/10.5281/zenodo.15228033)
+
+<!---
+Supplementary material 4 from: Wos G, Amer NR, Antoł A, Stoks R, Sniegula S (2025) Warming and latitude shape the non-consumptive effects of native and invasive alien crayfish predators on damselfly prey. NeoBiota 98: 223-245. https://doi.org/10.3897/neobiota.98.141133
+--->
 
 - [color selection for the figure of AbiF-like system conservation](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/data/color_selection.tsv)
 
