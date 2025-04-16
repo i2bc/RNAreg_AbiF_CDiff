@@ -4,15 +4,15 @@ This GitHub repository accompanies the preprint where we report the identificati
 
 ## Contents
 
-- [Dataset](#dataset)
+- [Datasets](#datasets) used 
 - [Conservation](#conservation) of the AbiF-like system of the hypervirulent ribotype 027 strain
 - [MAPS](#MAPS) analysis for the RCd22 ncRNA
-- [Reference](#Reference)
-- [Citation](#citation)
+- [Reference](#Reference) of third-party software
+- [Citation](#citation) 
 
-## Dataset
+## Datasets
 
-Prepare dataset with following downloads:
+Prepare datasets with following downloads:
 - genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff`) files from the Refseq [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. After unzip, you should have `ncbi_dataset/data/GCF_000027105.1/GCF_000027105.1_ASM2710v1_genomic.fna` and `ncbi_dataset/data/GCF_000027105.1/genomic.gff`. Add the identified [ncRNA of CD630](https://doi.org/10.1016/j.mib.2021.11.012) on the R20291 genome (`data/RCd_r20.gff`) to complete the annotation file.
 - [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S6 - Distribution AbiF" to `distribution_abiF.csv` and suppress header lines.
 - [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S7 - environment AbiF" to:
@@ -228,9 +228,9 @@ If you find these pages useful for your research, please cite the relevant paper
 ```
 @article{saunier_abiF_2025,
   title = {Deciphering the RNA-based regulation mechanism of phage-encoded AbiF system in Clostridioides difficile},
-  author = {Saunier, Marion and Soutourina, Olga and ...},
+  author = {Saunier, Marion and Humbert, Adeline and Kreis, Victor and Peltier, Johann and Tisba, Arianna and Auxilien, Sylvie and Blum, Marion and Caldelari, Isabelle and Lucier, Jean-François and Ueda, Joe and Gautheret, Daniel and Toffano-Nioche, Claire and Andreani, Jessica and Fortier, Louis-Charles and Soutourina, Olga},
   journal = {Bio},
   year = {2025},
-  url = {https://www.biorxiv.org/}
+  url = {https://www.biorxiv.org/content/10.1101/2025.04.15.648962}
 }
 ```
