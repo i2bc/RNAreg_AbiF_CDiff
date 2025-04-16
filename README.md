@@ -12,9 +12,10 @@ This GitHub repository accompanies the preprint where we report the identificati
 
 ## Dataset
 
+Prepare dataset with following downloads:
 - genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff`) files from the Refseq [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. After unzip, you should have `ncbi_dataset/data/GCF_000027105.1/GCF_000027105.1_ASM2710v1_genomic.fna` and `ncbi_dataset/data/GCF_000027105.1/genomic.gff`. Add the identified [ncRNA of CD630](https://doi.org/10.1016/j.mib.2021.11.012) on the R20291 genome (`data/RCd_r20.gff`) to complete the annotation file.
-- [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): "Table S6 - Distribution AbiF" to save into `distribution_abiF.csv`
-- [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): "Table S7 - environment AbiF" to save into
+- [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S6 - Distribution AbiF" to `distribution_abiF.csv` and suppress header lines.
+- [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S7 - environment AbiF" to:
 ```bash
  9989 Positions_genes_autours_abi-2_ou_abiF_5neg.csv
 10012 Positions_genes_autours_abi-2_ou_abiF_4neg.csv
@@ -30,6 +31,8 @@ This GitHub repository accompanies the preprint where we report the identificati
 - MAPS experiments data: stand in two parts: RNAseq fraction ([PRJEB87349](https://www.ebi.ac.uk/ena/browser/view/PRJEB87349)) and proteic fraction [R20291_RCd22_Soutourina_120723.xlsx](https://doi.org/10.5281/zenodo.15228033)
 
 - [color selection for the figure of AbiF-like system conservation](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/data/color_selection.tsv)
+
+- iTOL templates: [colors](https://itol.embl.de/help/dataset_color_strip_template.txt) and [simplebar](https://itol.embl.de/help/dataset_simplebar_template.txt)
 
 
 ## Conservation 
@@ -58,12 +61,12 @@ Create the tree (Newick format) from the taxonomy present in the AbiF resulting 
 
 ```bash
 awk -F "\t" '{if($4~/Bacteria/){print $4"\t"$3"\t"$1}}' distribution_abiF.csv | sed 's/:/-/;s/\t/;/g' | sort > full_lineage_bact.tsv
-python3 scripts/convert_lineage_to_nwk.py full_lineage_bact.tsv > full_lineage_bact.nwk
+python3 figures_scripts/convert_lineage_to_nwk.py full_lineage_bact.tsv > full_lineage_bact.nwk
 ```
 Firstly, the NCBI bacterial lineage (4th column) is completed by the strain name (3rd column) and the assembly ID (1st column), the characters ":" not allowed in iTOL are replaced by "-" and the separators ";" in the lineage are replaced by tab characters. 
 Next, this one-line-per-species format is converted into a tree following the Newick format using the python code `convert_lineage_to_nwk.py` taken from the [Mark Watson stackoverflow response](https://stackoverflow.com/questions/26146623/convert-csv-to-newick-tree/26147279#26147279) and adapted for python 3.
 
-Resulting file: `full_lineage_bact.nwk`
+Resulting file: `full_lineage_bact.tsv` and `full_lineage_bact.nwk` 
 
 
 #### species colors 
@@ -73,10 +76,11 @@ This selection was chosen according to different taxonomic levels to highlight *
 The other selected taxonomic levels constitute a balanced grouping according to the number of genomes in which the AbiF_like system was searched.
 Black color represents the remaining divisions.
 
-Into the iTOL templates [colors](https://itol.embl.de/help/dataset_color_strip_template.txt), manually change:
+Into the iTOL template `dataset_color_strip_template.txt` (see [Dataset](#dataset) section), manually change:
 - SEPARATOR SPACE for TAB 
-- COLOR_BRANCHES from 0 to 1 
 - DATASET_LABEL label1 to Philum
+- COLOR_BRANCHES from 0 to 1 
+
 and add the `color_selection.tsv` at the end:
 
 ```bash
@@ -87,7 +91,7 @@ Resulting file: `full_lineage_bact_colors.txt`
 
 #### AbiF distribution
 
-On the [simplebar](https://itol.embl.de/help/dataset_simplebar_template.txt) iTOL template file, uncomment the `WIDTH,1000` line and change its value from 1000 to 200.
+Into the iTOL template `dataset_simplebar_template.txt` (see [Dataset](#dataset) section), uncomment the `WIDTH,1000` line and change its value from 1000 to 200.
 Complete this `dataset_simplebar_template.txt` with the AbiF counts (2nd column) present in each assembly (1rst column) of the resulting AbiF table `distribution_abiF.csv`:
 ```bash
 cp dataset_simplebar_template.txt full_lineage_bact_simplebar_abiF.txt
@@ -114,8 +118,7 @@ Add colors on the tree by "Upload annotation files" (in "Control panel" then "Da
 
 Add the AbiF distribution : in "Datasets" table, "Upload" tab with `full_lineage_bact_simplebar_abiF.txt` 
 
-
-Save the figure.
+Save the resulting figure.
 
 ### Environment of AbiF-like (figure)
 
