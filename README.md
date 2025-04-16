@@ -10,6 +10,8 @@ This GitHub repository accompanies the preprint where we report the identificati
 - [Reference](#Reference) of third-party software
 - [Citation](#citation) 
 
+Descriptions of the software environment stand in the `conda_environments` files and are managed with [micromamba](https://mamba.readthedocs.io) with the command line: `micromamba create -f conda_environments/<environmentName>.yml` and activated before use by `micromamba activate <environmentName>_ce`.
+
 ## Datasets
 
 Prepare datasets with following downloads:
@@ -51,7 +53,7 @@ The genomic context of the resulting hits including 5 proteins upstream and down
 - [conda environement for figure generation](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/conda_environments/fig_conda_env.yaml)
 - [preprocess script for figure](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/script/figure.R)
 -->
-- iTOL templates to download: [colors](https://itol.embl.de/help/dataset_color_strip_template.txt) and [simplebar](https://itol.embl.de/help/dataset_simplebar_template.txt)
+- iTOL templates `dataset_color_strip_template.txt` and `dataset_simplebar_template.txt` (see [Datasets](#datasets) section)
 - python3
 
 
@@ -124,15 +126,17 @@ Save the resulting figure.
 
 #### Setup 
 
+<!---
 - [conda environement for figure generation](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/conda_environments/fig_conda_env.yaml)
 - [Rscript for figure generation](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/script/genomiccontext.R)
+--->
 
-The figure showing the genomic context of AbiF-like systems was produced with the R script `genomiccontext.R` after a few steps of filtering and reorganizing the genomic context data of AbiF-like systems (see Process below).
+The figure showing the genomic context of AbiF-like systems was produced with the R script `figures_scripts/genomiccontext.R` after a few steps of filtering and reorganizing the genomic context data of AbiF-like systems (see Process below).
 If required, the R-base version used (4.2.3) and added with the ggplot2 package (3.4.4) can be installed with the conda environment file `conda_environments/env_Rbase4.2.3.yml`: `conda env create -f conda_environments/env_Rbase4.2.3.yml`
 
 #### Process
 
-10 input files: see "genomic contexte of AbiF_like systems" in Dataset
+Input files: see "genomic contexte of AbiF_like systems" in the [Datasets](#Datasets) session
 
 select COG/Pfam or CDD if > 100 occurencies from the 10 input files:
 ```bash
@@ -151,9 +155,11 @@ done
 create graph:
 ```bash
 conda activate Rbase4.2.3 
-# pour les tests : conda activate /DATA/miniconda3/envs/Rbase4.2.3
 Rscript abi_context_graph.R
 ```
+<!---
+# pour les tests : conda activate /DATA/miniconda3/envs/Rbase4.2.3
+--->
 
 result: `abi_context_graph.png`
  
@@ -181,7 +187,7 @@ complete, up, and down tables of differentially captured RNA and the associated 
 ### MAPS proteic fraction
 
 Setup:
-- [conda environement for maps analysis](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/conda_environments/env_Rbase4.2.3.yml)
+- create a conda environement with the `conda_environments/R-EnhancedVolcano_ce.yml` (ex. `micromamba create -f conda_environments/R-EnhancedVolcano_ce.yml`)
 - download the `template_script_DESeq2_CL.r` from the [SARTools](https://github.com/PF2-pasteur-fr/SARTools) github pages.
 
 MAPS data (proteic part): 
@@ -206,7 +212,8 @@ complete, up, and down tables of differentially total spectrum counts and the as
 
 ## Reference
 
-- **conda** Conda — conda documentation. https://docs.conda.io/en/latest/ 
+- **conda** Conda documentation. https://docs.conda.io/en/latest/ 
+- **micromamba** Micromamba documentation. https://mamba.readthedocs.io/en/latest/
 - **Psi-blast** (v2.16.1) Altschul S.F., Madden T.L., Schäffer A.A., Zhang J., Zhang Z., Miller W., Lipman D.J. (1997) Gapped BLAST and PSI-BLAST: a new generation of protein database search programs. Nucleic Acids Res. Sep 1;25(17):3389-402. [doi](10.1093/nar/25.17.3389)
 - **CDD database** Wang J., Chitsaz F., Derbyshire M.K., Gonzales N.R., Gwadz M., Lu S., Marchler G.H., Song J.S., Thanki N., Yamashita R.A., Yang M., Zhang D., Zheng C., Lanczycki C.J., Marchler-Bauer A. (2023) The conserved domain database in 2023. Nucleic Acids Res. Jan 6;51(D1):D384-D388. [doi](10.1093/nar/gkac1096)
 - **snakemake** Koster J., Rahmann S. (2018) Snakemake-a scalable bioinformatics workflow engine. Bioinformatics. 34:3600. [doi](https://doi.org/10.1093/bioinformatics/bty350) [readthedocs](https://snakemake.readthedocs.io)
