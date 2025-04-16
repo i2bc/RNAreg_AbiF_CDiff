@@ -40,8 +40,8 @@ Prepare datasets with following downloads:
 ### Similarity search of the AbiF-like system 
 
 The AbiF-like system identified in the *C. difficile* hypervirulent ribotype 027 strain were searched in an in-house database of 47545 completely sequences genomes (chromosome level assembly, November 2023) both from Refseq and Genbank databases with PSI-BLAST (2.16.1 version). It was run against COG, CD and PFAM profiles from CDD database (E-value=1e-4), other parameters were default.
-The resulting table `distribution_abiF.csv` (see [Dataset](#dataset) section) contains the number of valid hits by genomes.
-The genomic context of the resulting hits including 5 proteins upstream and downstream from the location of the AbiF-like system where extracted and can be found in the corresponding 10 separate files (see [Dataset](#dataset) section)
+The resulting table `distribution_abiF.csv` (see [Datasets](#datasets) section) contains the number of valid hits by genomes.
+The genomic context of the resulting hits including 5 proteins upstream and downstream from the location of the AbiF-like system where extracted and can be found in the corresponding 10 separate files (see [Datasets](#datasets) section)
 
 ### AbiF-like system representation in the bacterial species tree (figure)
 
@@ -76,7 +76,7 @@ This selection was chosen according to different taxonomic levels to highlight *
 The other selected taxonomic levels constitute a balanced grouping according to the number of genomes in which the AbiF_like system was searched.
 Black color represents the remaining divisions.
 
-Into the iTOL template `dataset_color_strip_template.txt` (see [Dataset](#dataset) section), manually change:
+Into the iTOL template `dataset_color_strip_template.txt` (see [Datasets](#datasets) section), manually change:
 - SEPARATOR SPACE for TAB 
 - DATASET_LABEL label1 to Philum
 - COLOR_BRANCHES from 0 to 1 
@@ -91,7 +91,7 @@ Resulting file: `full_lineage_bact_colors.txt`
 
 #### AbiF distribution
 
-Into the iTOL template `dataset_simplebar_template.txt` (see [Dataset](#dataset) section), uncomment the `WIDTH,1000` line and change its value from 1000 to 200.
+Into the iTOL template `dataset_simplebar_template.txt` (see [Datasets](#datasets) section), uncomment the `WIDTH,1000` line and change its value from 1000 to 200.
 Complete this `dataset_simplebar_template.txt` with the AbiF counts (2nd column) present in each assembly (1rst column) of the resulting AbiF table `distribution_abiF.csv`:
 ```bash
 cp dataset_simplebar_template.txt full_lineage_bact_simplebar_abiF.txt
@@ -169,7 +169,7 @@ Setup:
 - [snakemake pipeline for maps analysis](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/script/maps.smk)
 
 MAPS data (rnaseq part): 
-4 fastq RCd22 : comparison of a *C. difficile* R20291 containing a plasmid with an MS2 tag followed (rcd22) or not (crtl) by RCd22 ncRNA (2 replicates for each condition, see Dataset section).
+4 fastq RCd22 : comparison of a *C. difficile* R20291 containing a plasmid with an MS2 tag followed (rcd22) or not (crtl) by RCd22 ncRNA (2 replicates for each condition, see [Datasets](#datasets) section).
 
 MAPS analysis: 
 The analysis workflow can be found in the snakemake file (see `scripts/maps.smk`) and the parameters are set in the corresponding configuration file (`scripts/maps.yml`). The workflow basically contains the following steps: quality control of reads (fastqc, fastqscreen) and correction if necessary (fastp), mapping to the genome sequence (bowtie2), count of the number of reads per gene (featurecount), differential capture analysis (SARTools used with DESeq2 mode), and creation of graph (R-enhancedVolcano).
