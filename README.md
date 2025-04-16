@@ -1,19 +1,20 @@
 # Deciphering the RNA-based regulation mechanism of phage-encoded AbiF system in Clostridioides difficile
 
-This GitHub repository accompanies the preprint where we report the identification of a new AbiF-like system within a prophage of an hypervirulent *Clostridioides difficile* R20291 strain: ["Deciphering the RNA-based regulation mechanism of phage-encoded AbiF system in Clostridioides difficile"](https://www.biorxiv.org/).
+This GitHub repository accompanies the preprint where we report the identification of a new AbiF-like system within a prophage of an hypervirulent *Clostridioides difficile* R20291 strain: ["Deciphering the RNA-based regulation mechanism of the phage-encoded AbiF system in Clostridioides difficile"](https://www.biorxiv.org/content/10.1101/2025.04.15.648962).
 
 ## Contents
 
 - [Dataset](#dataset)
 - [Conservation](#conservation) of the AbiF-like system of the hypervirulent ribotype 027 strain
 - [MAPS](#MAPS) analysis for the RCd22 ncRNA
+- [Reference](#Reference)
 - [Citation](#citation)
 
 ## Dataset
 
-- genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff3`) files from the [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. Add to this annotation file the identification of ncRNA identified in CD360 (`data/RCdxxx.gff`)
-- [Similarity search of the AbiF-like system](zenodo_xxx or MatSupp) containing `20241029_distribution_abiF.csv`
-- [genomic contexte of AbiF_like systems](zenodo_xxx or MatSupp) containing:
+- genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff3`) files from the [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. Add to this annotation file the identification of ncRNA identified in CD360 (`data/RCd_r20.gff`)
+- [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): "Table S6 - Distribution AbiF" to save into `distribution_abiF.csv`
+- [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): "Table S7 - environment AbiF" to save into
 ```bash
  9989 Positions_genes_autours_abi-2_ou_abiF_5neg.csv
 10012 Positions_genes_autours_abi-2_ou_abiF_4neg.csv
@@ -26,7 +27,7 @@ This GitHub repository accompanies the preprint where we report the identificati
 10031 Positions_genes_autours_abi-2_ou_abiF_4pos.csv
 10006 Positions_genes_autours_abi-2_ou_abiF_5pos.csv
 ```
-- MAPS experiments data: stand in two parts: RNAseq fraction ([ENA_xxx](ENA_xxx)) and [proteic fraction](zenodo_xxx, MatSupp, or github/data `R20291_RCd22_Soutourina_120723.xlsx` = 145K ; supprimer les colonnes "long" ?)
+- MAPS experiments data: stand in two parts: RNAseq fraction ([PRJEB87349](https://www.ebi.ac.uk/ena/browser/view/PRJEB87349)) and [proteic fraction](zenodo_xxx `R20291_RCd22_Soutourina_120723.xlsx` = 145K)
 
 - [color selection for the figure of AbiF-like system conservation](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/data/color_selection.tsv)
 
@@ -36,7 +37,7 @@ This GitHub repository accompanies the preprint where we report the identificati
 ### Similarity search of the AbiF-like system 
 
 The AbiF-like system identified in the *C. difficile* hypervirulent ribotype 027 strain were searched in an in-house database of 47545 completely sequences genomes (chromosome level assembly, November 2023) both from Refseq and Genbank databases with PSI-BLAST (2.16.1 version). It was run against COG, CD and PFAM profiles from CDD database (E-value=1e-4), other parameters were default.
-The resulting table `20241029_distribution_abiF.csv` (see [Dataset](#dataset) section) contains the number of valid hits by genomes.
+The resulting table `distribution_abiF.csv` (see [Dataset](#dataset) section) contains the number of valid hits by genomes.
 The genomic context of the resulting hits including 5 proteins upstream and downstream from the location of the AbiF-like system where extracted and can be found in the corresponding 10 separate files (see [Dataset](#dataset) section)
 
 ### AbiF-like system representation in the bacterial species tree (figure)
@@ -53,10 +54,10 @@ The genomic context of the resulting hits including 5 proteins upstream and down
 
 #### species tree 
 
-Create the tree (Newick format) from the taxonomy present in the AbiF resulting table `20241029_distribution_abiF.csv`:
+Create the tree (Newick format) from the taxonomy present in the AbiF resulting table `distribution_abiF.csv`:
 
 ```bash
-awk -F "\t" '{if($4~/Bacteria/){print $4"\t"$3"\t"$1}}' 20241029_distribution_abiF.csv | sed 's/:/-/;s/\t/;/g' | sort > full_lineage_bact.tsv
+awk -F "\t" '{if($4~/Bacteria/){print $4"\t"$3"\t"$1}}' distribution_abiF.csv | sed 's/:/-/;s/\t/;/g' | sort > full_lineage_bact.tsv
 python3 scripts/convert_lineage_to_nwk.py full_lineage_bact.tsv > full_lineage_bact.nwk
 ```
 Firstly, the NCBI bacterial lineage (4th column) is completed by the strain name (3rd column) and the assembly ID (1st column), the characters ":" not allowed in iTOL are replaced by "-" and the separators ";" in the lineage are replaced by tab characters. 
@@ -87,10 +88,10 @@ Resulting file: `full_lineage_bact_colors.txt`
 #### AbiF distribution
 
 On the [simplebar](https://itol.embl.de/help/dataset_simplebar_template.txt) iTOL template file, uncomment the `WIDTH,1000` line and change its value from 1000 to 200.
-Complete this `dataset_simplebar_template.txt` with the AbiF counts (2nd column) present in each assembly (1rst column) of the resulting AbiF table `20241029_distribution_abiF.csv`:
+Complete this `dataset_simplebar_template.txt` with the AbiF counts (2nd column) present in each assembly (1rst column) of the resulting AbiF table `distribution_abiF.csv`:
 ```bash
 cp dataset_simplebar_template.txt full_lineage_bact_simplebar_abiF.txt
-awk -F "\t" '{if($4~/Bacteria/){print $1","$2}}' 20241029_distribution_abiF.csv | sort >> full_lineage_bact_simplebar_abiF.txt
+awk -F "\t" '{if($4~/Bacteria/){print $1","$2}}' distribution_abiF.csv | sort >> full_lineage_bact_simplebar_abiF.txt
 ```
 Resulting file: `full_lineage_bact_simplebar_abiF.txt`
 
