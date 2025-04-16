@@ -12,7 +12,7 @@ This GitHub repository accompanies the preprint where we report the identificati
 
 ## Dataset
 
-- genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff3`) files from the [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. Add to this annotation file the identification of ncRNA identified in CD360 (`data/RCd_r20.gff`)
+- genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff`) files from the Refseq [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. After unzip, you should have `ncbi_dataset/data/GCF_000027105.1/GCF_000027105.1_ASM2710v1_genomic.fna` and `ncbi_dataset/data/GCF_000027105.1/genomic.gff`. Add the identified [ncRNA of CD630](https://doi.org/10.1016/j.mib.2021.11.012) on the R20291 genome (`data/RCd_r20.gff`) to complete the annotation file.
 - [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): "Table S6 - Distribution AbiF" to save into `distribution_abiF.csv`
 - [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): "Table S7 - environment AbiF" to save into
 ```bash
@@ -28,10 +28,6 @@ This GitHub repository accompanies the preprint where we report the identificati
 10006 Positions_genes_autours_abi-2_ou_abiF_5pos.csv
 ```
 - MAPS experiments data: stand in two parts: RNAseq fraction ([PRJEB87349](https://www.ebi.ac.uk/ena/browser/view/PRJEB87349)) and proteic fraction [R20291_RCd22_Soutourina_120723.xlsx](https://doi.org/10.5281/zenodo.15228033)
-
-<!---
-Supplementary material 4 from: Wos G, Amer NR, Antoł A, Stoks R, Sniegula S (2025) Warming and latitude shape the non-consumptive effects of native and invasive alien crayfish predators on damselfly prey. NeoBiota 98: 223-245. https://doi.org/10.3897/neobiota.98.141133
---->
 
 - [color selection for the figure of AbiF-like system conservation](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/data/color_selection.tsv)
 
