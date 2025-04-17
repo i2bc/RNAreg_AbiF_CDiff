@@ -15,7 +15,7 @@ Descriptions of the software environment stand in the `conda_environments` files
 ## Datasets
 
 Prepare datasets with following downloads:
-- genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff`) files from the Refseq [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. After unzip, you should have `ncbi_dataset/data/GCF_000027105.1/GCF_000027105.1_ASM2710v1_genomic.fna` and `ncbi_dataset/data/GCF_000027105.1/genomic.gff`. Add the identified [ncRNA of CD630](https://doi.org/10.1016/j.mib.2021.11.012) on the R20291 genome (`data/RCd_r20.gff`) to complete the annotation file: `cat data/RCd_r20.gff >> ncbi_dataset/data/GCF_000027105.1/genomic.gff`.
+- genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff`) files from the Refseq [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. After unzip, you should have `ncbi_dataset/data/GCF_000027105.1/GCF_000027105.1_ASM2710v1_genomic.fna` and `ncbi_dataset/data/GCF_000027105.1/genomic.gff`. Mapped reads are counted using the *locus_tag* information in the annotation file. For genetic elements of interest that did not contain it, it is added as follows `awk -F "\t" '{if(($3!="riboswitch")&&($3!="binding_site")&&($3!="sequence_feature")){print}}' ncbi_dataset/data/GCF_000027105.1/genomic.gff  > data/genomic.gff`. And the identified [ncRNA of CD630](https://doi.org/10.1016/j.mib.2021.11.012) on the R20291 genome (`data/RCd_r20.gff`) is also added to complete the annotation file: `cat data/riboswith_bindinsite_sequencefeature_withLocusTag.gff data/RCd_r20.gff >> data/genomic.gff`.
 - [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S6 - Distribution AbiF" to `distribution_abiF.csv` and suppress header lines.
 - [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S7 - environment AbiF" to:
 ```bash
@@ -195,7 +195,7 @@ To run a functionnal test, a small extract of the related MAPS rnaseq data stand
 
 Setup:
 - create a conda environement with the `conda_environments/R-EnhancedVolcano_ce.yml` (ex. `micromamba create -f conda_environments/R-EnhancedVolcano_ce.yml`)
-- download the `template_script_DESeq2_CL.r` from the [SARTools](https://github.com/PF2-pasteur-fr/SARTools) github pages.
+- download the `template_script_DESeq2_CL.r` from the [SARTools](https://github.com/PF2-pasteur-fr/SARTools) github pages to the `script/` directory.
 
 MAPS data (proteic part): 
 The xlxs file was manually saved with a csv format (with tabulation separator).
