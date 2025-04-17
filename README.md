@@ -15,7 +15,7 @@ Descriptions of the software environment stand in the `conda_environments` files
 ## Datasets
 
 Prepare datasets with following downloads:
-- genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff`) files from the Refseq [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. After unzip, you should have `ncbi_dataset/data/GCF_000027105.1/GCF_000027105.1_ASM2710v1_genomic.fna` and `ncbi_dataset/data/GCF_000027105.1/genomic.gff`. Add the identified [ncRNA of CD630](https://doi.org/10.1016/j.mib.2021.11.012) on the R20291 genome (`data/RCd_r20.gff`) to complete the annotation file.
+- genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff`) files from the Refseq [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. After unzip, you should have `ncbi_dataset/data/GCF_000027105.1/GCF_000027105.1_ASM2710v1_genomic.fna` and `ncbi_dataset/data/GCF_000027105.1/genomic.gff`. Add the identified [ncRNA of CD630](https://doi.org/10.1016/j.mib.2021.11.012) on the R20291 genome (`data/RCd_r20.gff`) to complete the annotation file: `cat data/RCd_r20.gff >> ncbi_dataset/data/GCF_000027105.1/genomic.gff`.
 - [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S6 - Distribution AbiF" to `distribution_abiF.csv` and suppress header lines.
 - [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S7 - environment AbiF" to:
 ```bash
@@ -185,12 +185,11 @@ Results:
 complete, up, and down tables of differentially captured RNA and the associated volcano-plot will be provided in the specified `st_dir/st_comparison/` (see the fixed values of `st_dir` and `st_comparison` in the `scripts/ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml`) repository.
 
 Functionnal testing of the snakemake workflow:
-- if needed, create a conda environment with snakemake and activate it.
-- run the RNAseq analysis on a small extract of the related data of the `data/demo/small_data/` repository:
-```bash
-cd ./script
-snakemake -c1 -s ftp_fQC_bwt2_ftCounts_DEseq2_annot.smk --configfile ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml --use-conda
-```
+To run a functionnal test, a small extract of the related MAPS rnaseq data stands in the `data/demo/small_data/` repository.
+- if needed, create a conda environment including snakemake and activate it.
+- make the `RNAreg_AbiF_CDiff` repository the current working directory
+- check (and change if necessary) the indicated paths into the configdfile `script/ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml`
+- run the RNAseq analysis with: `snakemake -c1 -s script/ftp_fQC_bwt2_ftCounts_DEseq2_annot.smk --configfile script/ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml --use-conda`
 
 ### MAPS proteic fraction
 
