@@ -1,0 +1,54 @@
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.8
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 BAM file                                       ||
+||                                                                            ||
+||                           wtB.bam                                          ||
+||                                                                            ||
+||             Output file : wtB_fc.txt                                       ||
+||                 Summary : wtB_fc.txt.summary                               ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : no                                               ||
+||              Annotation : r20_referenceGenome_gcf_enriched_unsorted.gf ... ||
+||      Dir for temp files : /home/joe.ueda/Bureau/cDiff/maps_deseq2/rcd2 ... ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : counted (fractional)                             ||
+||     Multiple alignments : primary alignment only                           ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file r20_referenceGenome_gcf_enriched_unsorted.gff ...     ||
+||    Features : 3851                                                         ||
+||    Meta-features : 3851                                                    ||
+||    Chromosomes/contigs : 1                                                 ||
+||                                                                            ||
+|| Process BAM file wtB.bam...                                                ||
+||    Strand specific : reversely stranded                                    ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 4962                                                 ||
+||    Successfully assigned alignments : 2425 (48.9%)                         ||
+||    Running time : 0.00 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/home/joe.ueda/Bureau/c  ||
+|| Diff/maps_deseq2/rcd22/gitHub_testing/04_counts/wtB_fc.txt.summary"        ||
+||                                                                            ||
+\\============================================================================//
+

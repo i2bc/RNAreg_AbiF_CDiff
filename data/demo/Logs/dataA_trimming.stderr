@@ -1,0 +1,41 @@
+Read1 before filtering:
+total reads: 2500
+total bases: 375000
+Q20 bases: 366235(97.6627%)
+Q30 bases: 349732(93.2619%)
+
+Read2 before filtering:
+total reads: 2500
+total bases: 375000
+Q20 bases: 364491(97.1976%)
+Q30 bases: 346692(92.4512%)
+
+Read1 after filtering:
+total reads: 2482
+total bases: 369457
+Q20 bases: 361033(97.7199%)
+Q30 bases: 344915(93.3573%)
+
+Read2 after filtering:
+total reads: 2482
+total bases: 369457
+Q20 bases: 360385(97.5445%)
+Q30 bases: 343147(92.8787%)
+
+Filtering result:
+reads passed filter: 4964
+reads failed due to low quality: 30
+reads failed due to too many N: 6
+reads failed due to too short: 0
+reads with adapter trimmed: 210
+bases trimmed due to adapters: 5686
+
+Duplication rate: 9.84%
+
+Insert size peak (evaluated by paired-end reads): 267
+
+JSON report: /home/joe.ueda/Bureau/cDiff/maps_deseq2/rcd22/gitHub_testing/02_trimming/dataAreport.json
+HTML report: /home/joe.ueda/Bureau/cDiff/maps_deseq2/rcd22/gitHub_testing/02_trimming/dataAreport.html
+
+fastp -i small_dataset_rcd22_4git/dataA_1.fastq.gz -I small_dataset_rcd22_4git/dataA_2.fastq.gz -o /home/joe.ueda/Bureau/cDiff/maps_deseq2/rcd22/gitHub_testing/02_trimming/dataA_1_trimmed.fastq.gz -O /home/joe.ueda/Bureau/cDiff/maps_deseq2/rcd22/gitHub_testing/02_trimming/dataA_2_trimmed.fastq.gz -j /home/joe.ueda/Bureau/cDiff/maps_deseq2/rcd22/gitHub_testing/02_trimming/dataAreport.json -h /home/joe.ueda/Bureau/cDiff/maps_deseq2/rcd22/gitHub_testing/02_trimming/dataAreport.html 
+fastp v0.23.4, time used: 1 seconds

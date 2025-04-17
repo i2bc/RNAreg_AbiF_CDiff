@@ -1,0 +1,2 @@
+Id	ctrl1	ctrl2	wt1	wt2	norm.ctrl1	norm.ctrl2	norm.wt1	norm.wt2	baseMean	ctrl	wt	FoldChange	log2FoldChange	stat	pvalue	padj	dispGeneEst	dispFit	dispMAP	dispersion	betaConv	maxCooks
+CDR20291_RS16240	456	596	6	2	238	460	10	3	177.76	349	6	0.027	-5.22	-6.238	4.43462571958794e-10	1.79602341643312e-07	0.2621	0.2992	0.2928	0.2928	TRUE	NA

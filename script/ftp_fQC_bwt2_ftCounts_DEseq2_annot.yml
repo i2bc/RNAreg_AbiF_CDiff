@@ -1,6 +1,6 @@
 cwdDir:
    # "/adapt/to/the/environment/
-   ""
+   "data/demo/"
 pePrefix:
    "_"
 peSuffix:
@@ -13,7 +13,7 @@ genomeFna:
 genomeIdxPrefix:
    "r20_idx"
 dataDir:
-   "dataDir/"
+   "data/demo/small_dataset/"
 fastqSuff:
    ".fastq.gz"
 fastqcDir:
@@ -50,7 +50,7 @@ st_condition:
 st_dir:
    "05_DEG/"
 st_designDir:
-   ""
+   "data/"
 st_group:
    "group"
 

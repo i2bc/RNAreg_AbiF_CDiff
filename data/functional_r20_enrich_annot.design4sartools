@@ -1,5 +1,5 @@
 label	files	group
-wt1	RCd22a_fc4DEG.txt	wt
-wt2	RCd22b_fc4DEG.txt	wt
-ctrl1	WTa_fc4DEG.txt	ctrl
-ctrl2	WTb_fc4DEG.txt	ctrl
+wt1	dataA_fc4DEG.txt	wt
+wt2	dataB_fc4DEG.txt	wt
+ctrl1	wtA_fc4DEG.txt	ctrl
+ctrl2	wtB_fc4DEG.txt	ctrl
