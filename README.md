@@ -6,7 +6,7 @@ This GitHub repository accompanies the preprint where we report the identificati
 
 - [Datasets](#datasets) used 
 - [Conservation](#conservation) of the AbiF-like system of the hypervirulent ribotype 027 strain
-- [MAPS](#MAPS) analysis for the RCd22 ncRNA
+- [MAPS](#MAPS) analyses for the RCd22 ncRNA
 - [Reference](#Reference) of third-party software
 - [Citation](#citation) 
 
@@ -182,7 +182,15 @@ The analysis workflow can be found in the snakemake file (see `scripts/maps.smk`
 Software versions are described in the associated conda environments (`conda_environments/*.yml`).
 
 Results: 
-complete, up, and down tables of differentially captured RNA and the associated volcano-plot will be provided in the specified `st_dir/st_comparison/` (see the fixed values of `st_dir` and `st_comparison` in the `scripts/maps.yml`) repository.
+complete, up, and down tables of differentially captured RNA and the associated volcano-plot will be provided in the specified `st_dir/st_comparison/` (see the fixed values of `st_dir` and `st_comparison` in the `scripts/ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml`) repository.
+
+Functionnal testing of the snakemake workflow:
+- if needed, create a conda environment with snakemake and activate it.
+- run the RNAseq analysis on a small extract of the related data of the `data/demo/small_data/` repository:
+```bash
+cd ./script
+snakemake -c1 -s ftp_fQC_bwt2_ftCounts_DEseq2_annot.smk --configfile ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml --use-conda
+```
 
 ### MAPS proteic fraction
 
