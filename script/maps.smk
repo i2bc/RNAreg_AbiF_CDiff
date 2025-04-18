@@ -9,10 +9,10 @@
 # usage example on I2BC cluster:
 # qsub smk_maps.qsub
 # module load snakemake/snakemake-8.4.6
-# snakemake -c3 -s ftp_fQC_bwt2_ftCounts_DEseq2_annot.smk --configfile ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml --use-conda
+# snakemake -c3 -s maps.smk --configfile maps.yml --use-conda
 # or
 # module load snakemake/snakemake-8.4.6
-# snakemake -c3 -s ftp_fQC_bwt2_ftCounts_DEseq2_annot.smk --configfile ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml --use-conda
+# snakemake -c3 -s maps.smk --configfile maps.yml --use-conda
 # 
 
 
