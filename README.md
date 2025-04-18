@@ -171,25 +171,28 @@ MAPS (MS2‐affinity purification coupled with RNA sequencing) analysis for the 
 ### MAPS rnaseq fraction
 
 Setup:
-- [conda environement for maps analysis](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/conda_environments/maps_conda_env.yaml)
-- [snakemake pipeline for maps analysis](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/script/maps.smk)
+- if needed, create then activate the conda environement for snakemake: `conda_environments/smk8.4.6_conda_env.yaml`
+- snakemake pipeline for RNAseq maps analysis: `script/maps.smk`
+- adapt file paths of the snakemake configuration file: `script/maps.yml`
 
 MAPS data (rnaseq part): 
 4 fastq RCd22 : comparison of a *C. difficile* R20291 containing a plasmid with an MS2 tag followed (rcd22) or not (crtl) by RCd22 ncRNA (2 replicates for each condition, see [Datasets](#datasets) section).
 
 MAPS analysis: 
 The analysis workflow can be found in the snakemake file (see `scripts/maps.smk`) and the parameters are set in the corresponding configuration file (`scripts/maps.yml`). The workflow basically contains the following steps: quality control of reads (fastqc, fastqscreen) and correction if necessary (fastp), mapping to the genome sequence (bowtie2), count of the number of reads per gene (featurecount), differential capture analysis (SARTools used with DESeq2 mode), and creation of graph (R-enhancedVolcano).
-Software versions are described in the associated conda environments (`conda_environments/*.yml`).
+Software versions are described in their associated conda environments (`script/conda_environments/*.yml`).
 
 Results: 
-complete, up, and down tables of differentially captured RNA and the associated volcano-plot will be provided in the specified `st_dir/st_comparison/` (see the fixed values of `st_dir` and `st_comparison` in the `scripts/ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml`) repository.
+- the volcano-plot of differentially captured RNA: `volcano_plot.pdf` 
+- complete, up, and down tables of differentially captured RNA will be provided in the specified `st_dir/st_comparison/` (see the fixed values of `st_dir` and `st_comparison` in the `scripts/maps.yml`) repository.
+
 
 Functionnal testing of the snakemake workflow:
 To run a functionnal test, a small extract of the related MAPS rnaseq data stands in the `data/demo/small_data/` repository.
-- if needed, create a conda environment including snakemake and activate it.
-- make the `RNAreg_AbiF_CDiff` repository the current working directory
-- check (and change if necessary) the indicated paths into the configdfile `script/ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml`
-- run the RNAseq analysis with: `snakemake -c1 -s script/ftp_fQC_bwt2_ftCounts_DEseq2_annot.smk --configfile script/ftp_fQC_bwt2_ftCounts_DEseq2_annot.yml --use-conda`
+- if needed, create then activate the conda environement for snakemake: `conda_environments/smk8.4.6_conda_env.yaml`
+- choose the `RNAreg_AbiF_CDiff` repository as the current working directory
+- check (and change if necessary) the indicated paths into the configdfile `script/maps.yml`
+- run the RNAseq analysis with: `snakemake -c1 -s script/maps.smk --configfile script/maps.yml --use-conda`
 
 ### MAPS proteic fraction
 
