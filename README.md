@@ -11,6 +11,8 @@ This GitHub repository accompanies the preprint where we report the identificati
 - [Citation](#citation) 
 
 Descriptions of the software environment stand in the `conda_environments` files and are managed with [micromamba](https://mamba.readthedocs.io) with the command line: `micromamba create -f conda_environments/<environmentName>.yml` and activated before use by `micromamba activate <environmentName>_ce`.
+Example for the snakemake environment: `micromamba create -f conda_environments/smk8.4.6_ce.yml`
+Example for the the R-Enhanced volcano: `micromamba create -f conda_environments/R-EnhancedVolcano_ce.yml`
 
 ## Datasets
 
@@ -31,9 +33,7 @@ Prepare datasets with following downloads:
 10006 Positions_genes_autours_abi-2_ou_abiF_5pos.csv
 ```
 - MAPS experiments data: stand in two parts: RNAseq fraction ([PRJEB87349](https://www.ebi.ac.uk/ena/browser/view/PRJEB87349)) and proteic fraction [R20291_RCd22_Soutourina_120723.xlsx](https://doi.org/10.5281/zenodo.15228033)
-
 - [color selection for the figure of AbiF-like system conservation](https://github.com/i2bc/RNAreg_AbiF_CDiff/blob/main/data/color_selection.tsv)
-
 - iTOL templates: [colors](https://itol.embl.de/help/dataset_color_strip_template.txt) and [simplebar](https://itol.embl.de/help/dataset_simplebar_template.txt)
 
 
@@ -171,9 +171,12 @@ MAPS (MS2‐affinity purification coupled with RNA sequencing) analysis for the 
 ### MAPS rnaseq fraction
 
 Setup:
-- if needed, create then activate the conda environement for snakemake: `conda_environments/smk8.4.6_conda_env.yaml`
+- if needed, create then activate the conda environement for snakemake: `conda_environments/smk8.4.6_ce.yaml`
+- download the `template_script_DESeq2_CL.r` from the [SARTools](https://github.com/PF2-pasteur-fr/SARTools) github pages to the `script/` directory.
 - snakemake pipeline for RNAseq maps analysis: `script/maps.smk`
 - adapt file paths of the snakemake configuration file: `script/maps.yml`
+- genome and annotation of the *C. difficile* R20291 strain (see [Datasets](#datasets) section)
+- RNAseq fraction of the MAPS experiments data (see [Datasets](#datasets) section)
 
 MAPS data (rnaseq part): 
 4 fastq RCd22 : comparison of a *C. difficile* R20291 containing a plasmid with an MS2 tag followed (rcd22) or not (crtl) by RCd22 ncRNA (2 replicates for each condition, see [Datasets](#datasets) section).
@@ -189,7 +192,7 @@ Results:
 
 Functionnal testing of the snakemake workflow:
 To run a functionnal test, a small extract of the related MAPS rnaseq data stands in the `data/demo/small_data/` repository.
-- if needed, create then activate the conda environement for snakemake: `conda_environments/smk8.4.6_conda_env.yaml`
+- if needed, create then activate the conda environement for snakemake: `conda_environments/smk8.4.6_ce.yaml`
 - choose the `RNAreg_AbiF_CDiff` repository as the current working directory
 - check (and change if necessary) the indicated paths into the configdfile `script/maps.yml`
 - run the RNAseq analysis with: `snakemake -c1 -s script/maps.smk --configfile script/maps.yml --use-conda`
@@ -197,7 +200,7 @@ To run a functionnal test, a small extract of the related MAPS rnaseq data stand
 ### MAPS proteic fraction
 
 Setup:
-- create a conda environement with the `conda_environments/R-EnhancedVolcano_ce.yml` (ex. `micromamba create -f conda_environments/R-EnhancedVolcano_ce.yml`)
+- create a conda environement with the `conda_environments/R-EnhancedVolcano_ce.yml` 
 - download the `template_script_DESeq2_CL.r` from the [SARTools](https://github.com/PF2-pasteur-fr/SARTools) github pages to the `script/` directory.
 
 MAPS data (proteic part): 

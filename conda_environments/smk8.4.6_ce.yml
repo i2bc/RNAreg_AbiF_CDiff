@@ -1,0 +1,6 @@
+name: smk8.4.6_ce
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - snakemak=8.4.6
