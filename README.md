@@ -19,7 +19,8 @@ Example for the the R-Enhanced volcano: `micromamba create -f conda_environments
 Prepare datasets with following downloads:
 - [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S6 - Distribution AbiF" to `distribution_abiF.csv` and suppress header lines.
 - iTOL templates: [colors](https://itol.embl.de/help/dataset_color_strip_template.txt) and [simplebar](https://itol.embl.de/help/dataset_simplebar_template.txt)
-- [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S7 - environment AbiF" to:
+- [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S7 - AbiF environment" in a `abiF_environment.csv` file in tsv format (values separated by tabs).
+<!---
 ```bash
  9989 Positions_genes_autours_abi-2_ou_abiF_5neg.csv
 10012 Positions_genes_autours_abi-2_ou_abiF_4neg.csv
@@ -32,6 +33,7 @@ Prepare datasets with following downloads:
 10031 Positions_genes_autours_abi-2_ou_abiF_4pos.csv
 10006 Positions_genes_autours_abi-2_ou_abiF_5pos.csv
 ```
+--->
 - genome and annotation of the *C. difficile* R20291 strain used: download both the genome (`fna`) and annotation (`gff`) files from the Refseq [GCF_000027105.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027105.1/) ncbi assembly. After unzip, you should have `ncbi_dataset/data/GCF_000027105.1/GCF_000027105.1_ASM2710v1_genomic.fna` and `ncbi_dataset/data/GCF_000027105.1/genomic.gff`. Mapped reads are counted using the *locus_tag* information in the annotation file. For genetic elements of interest that did not contain it, it is added as follows `awk -F "\t" '{if(($3!="riboswitch")&&($3!="binding_site")&&($3!="sequence_feature")){print}}' ncbi_dataset/data/GCF_000027105.1/genomic.gff  > data/genomic.gff`. And the identified [ncRNA of CD630](https://doi.org/10.1016/j.mib.2021.11.012) on the R20291 genome (`data/RCd_r20.gff`) is also added to complete the annotation file: `cat data/riboswith_bindinsite_sequencefeature_withLocusTag.gff data/RCd_r20.gff >> data/genomic.gff`.
 - MAPS experiments data: stand in two parts: RNAseq fraction ([PRJEB87349](https://www.ebi.ac.uk/ena/browser/view/PRJEB87349)) and proteic fraction [R20291_RCd22_Soutourina_120723.xlsx](https://doi.org/10.5281/zenodo.15228033)
 
@@ -137,7 +139,13 @@ If required, the R-base version used (4.2.3) and added with the ggplot2 package 
 
 #### Process
 
-Input files: see "genomic contexte of AbiF_like systems" in the [Datasets](#Datasets) session
+Input file: see "genomic contexte of AbiF_like systems" in the [Datasets](#Datasets) session
+
+Suppress column 11 from the `environment_abiF.tsv` file and convert information in position files :
+```bash
+awk 'BEGIN{OFS="\t";FS="\t"}{print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$12,$13}' environment_abiF.tsv > environment_abiF_woc11.tsv
+awk -f script/AbiF_environment_2_pos.awk 
+```
 
 select COG/Pfam or CDD if > 100 occurencies from the 10 input files:
 ```bash
