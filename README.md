@@ -17,9 +17,9 @@ Example for the the R-Enhanced volcano: `micromamba create -f conda_environments
 ## Datasets
 
 Prepare datasets with following downloads:
-- [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S6 - Distribution AbiF" to `distribution_abiF.csv` and suppress header lines.
+- [Similarity search of the AbiF-like system](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S6 - Distribution AbiF" of the supplemental material to `distribution_abiF.csv` and suppress header lines.
 - iTOL templates: [colors](https://itol.embl.de/help/dataset_color_strip_template.txt) and [simplebar](https://itol.embl.de/help/dataset_simplebar_template.txt)
-- [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S7 - AbiF environment" in a `abiF_environment.csv` file in tsv format (values separated by tabs).
+- [genomic contexte of AbiF_like systems](https://www.biorxiv.org/content/biorxiv/early/2025/04/15/2025.04.15.648962/DC2/embed/media-2.xlsx): save "Table S7 - AbiF environment" of the supplemental material in a `abiF_environment.csv` file in tsv format (values separated by tabs).
 <!---
 ```bash
  9989 Positions_genes_autours_abi-2_ou_abiF_5neg.csv
@@ -141,7 +141,7 @@ If required, the R-base version used (4.2.3) and added with the ggplot2 package 
 
 Input file: see "genomic contexte of AbiF_like systems" in the [Datasets](#Datasets) session
 
-Suppress column 11 from the `environment_abiF.tsv` file and convert information in position files :
+Suppress column 11 from the `environment_abiF.tsv` file and convert information into several files depending on position:
 ```bash
 awk 'BEGIN{OFS="\t";FS="\t"}{print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$12,$13}' environment_abiF.tsv > environment_abiF_woc11.tsv
 awk -f script/AbiF_environment_2_pos.awk 

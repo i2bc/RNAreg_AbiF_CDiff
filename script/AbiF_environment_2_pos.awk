@@ -4,14 +4,15 @@
 #
 # Abi stands in pos_0.txt
 # upstream or donwstream proteins stand in pos_-x.txt or pos_x.txt 
+# relatively to Abi strand
 #
 # command line:
 # awk -f Abif_environment_2_pos.awk S7_table.tsv
 #
-function whereisabi(nbline, abivalue, abilines) {
+function whereisabi(nblines, abivalue, abilines) {
    pos=-1
    i=1
-   while((i<=nbline)&&(pos==-1)){ 
+   while((i<=nblines)&&(pos==-1)){ 
       if(match(abivalue,abilines[i])==1){
          pos=i
       }
@@ -19,12 +20,27 @@ function whereisabi(nbline, abivalue, abilines) {
    }
    return pos
 }
-function printabi(nbpos, pos, abilines) {
-   for(i=1;i<=nbpos;i++){  
-      posfile=i-pos
-      print abilines[i]>"pos_"posfile".txt"
+function printabi(nblines, pos, abilines) {
+   if(nblines > 1) {
+      split(abilines[pos],abiinfo,"\t")
+      abistrand=abiinfo[3] 
+      if(abistrand == "+"){ # abi in forward strand
+         i=1
+         while (i<=nblines) {
+            posfile=i-pos
+            print abilines[i]>"pos_"posfile".txt"
+            i++
+         }
+      }else{ # abi in reverse strand
+         i=nblines
+         while (i>=1) {    
+            posfile=pos-i
+            print abilines[i]>"pos_"posfile".txt"
+            i--
+         }
+      }
    }
-   return 1
+   return entete
 }
 BEGIN{
    FS="\t"
@@ -34,7 +50,7 @@ BEGIN{
 }
 {
    # new abi:
-   if($1=="==="){      
+   if($1=="==="){ # abi transition
      # manage the current abi:
      abipos=whereisabi(nbpos, abi, memo)
      ok=printabi(nbpos, abipos, memo)
@@ -42,8 +58,7 @@ BEGIN{
      abi=$2 
      nbpos=$3
      tmp=1
-   }else{
-      # memorize lines
+   }else{ # memorize lines of current abi
       memo[tmp++]=$0
    }
 }
